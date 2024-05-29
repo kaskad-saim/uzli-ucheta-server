@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<style>
+		body::-webkit-scrollbar {
+			width: 5px;
+			height: 5px;
+			/* ширина scrollbar */
+		}
+
+		body::-webkit-scrollbar-track {
+			background-color: #dfdcdc;
+			/* цвет дорожки */
+		}
+
+		body::-webkit-scrollbar-thumb {
+			background-color: green;
+			/* цвет плашки */
+			border-radius: 20px;
+			/* закругления плашки */
+		}
+
+		.tables {
+			display: flex;
+			justify-content: space-between;
+			flex-wrap: wrap;
+		}
+
+		.current-param {
+			margin-right: 15px;
+			background-color: #e7eef4;
+			box-shadow: 0 0 5px 1px black;
+
+
+			/* box-shadow: 2px 2px 10px rgb(0 0 0 / 20%); */
+
+			border-radius: 5px;
+		}
+
+		.current-param__title {
+			display: flex;
+			flex-direction: column;
+			margin-bottom: 10px;
+			margin-bottom: 0;
+			text-align: center;
+			font-size: 24px;
+			line-height: 30px;
+			font-weight: 700;
+			color: green;
+		}
+
+		.current-param__title-span {
+			font-size: 22px;
+			line-height: 30px;
+			font-weight: 600;
+			color: black;
+		}
+
+		.current-param__box {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+
+		.current-param__date {
+			margin-right: 20px;
+			font-size: 22px;
+			line-height: 30px;
+			font-weight: 600;
+			color: black;
+		}
+
+		.current-param__time {
+			font-size: 22px;
+			line-height: 30px;
+			font-weight: 600;
+			color: black;
+
+		}
+
+		.table {
+			margin-top: 30px;
+			margin-right: 15px;
+			width: 100%;
+			text-align: left;
+			border-collapse: collapse;
+			border-spacing: 5px;
+			background-color: #e7eef4;
+			box-shadow: 0 0 5px 0 black;
+		}
+
+
+		.table__title {
+			margin-bottom: 10px;
+			text-align: center;
+			font-size: 20px;
+			line-height: 25px;
+			font-weight: 700;
+			color: green;
+		}
+
+		.table__tr {
+			height: 30px;
+			border: 1px solid black;
+		}
+
+		.table__th {
+			padding: 5px;
+			text-align: center;
+			font-size: 18px;
+			line-height: 18px;
+			font-weight: 800;
+			color: black;
+		}
+
+		.table__td {
+			letter-spacing: 1px;
+			text-align: center;
+			font-size: 16px;
+			line-height: 16px;
+			font-weight: 500;
+			color: black;
+		}
+
+		.table__left {
+			padding: 10px;
+			padding-left: 30px;
+			text-align: left;
+		}
+
+		.table__right {
+			color: green;
+			font-weight: 600;
+		}
+
+		.table__th:not(:last-child),
+		.table__td:not(:last-child) {
+			border-right: 1px solid black;
+		}
+	</style>
+</head>
+<#Refresh Content=60>
+
+	<body>
+		<div class="current-param">
+			<h1 class="current-param__title">
+				Узлы учета Воздуха
+			</h1>
+			<div class="current-param__box">
+				<span class="current-param__date">
+					<#Date>
+				</span>
+				<span class="current-param__time">
+					<#Time>
+				</span>
+			</div>
+		</div>
+
+		<div class="tables">
+			<table class="table">
+				<tbody>
+					<tr class="table__tr">
+						<th colspan="7" class="table__th ">Генерация сжатого воздуха</th>
+					</tr>
+					<tr class="table__tr">
+						<th class="table__th table__left">Наименование узла учета</th>
+						<th class="table__th">
+							Типоразмер
+						</th>
+						<td class="table__th">
+							Расход в н.м3/ч
+						</td>
+						<th class="table__th">
+							Расход в р.м3/ч
+						</th>
+						<th class="table__th">
+							Давление, МПа
+						</th>
+						<th class="table__th">
+							Температура, &#176C
+						</th>
+					</tr>
+					<tr class="table__tr">
+						<td class="table__td table__left">УЭХ к.317 БС</td>
+						<td class="table__td table__right">
+							Dy50
+						</td>
+						<td class="table__td table__right">
+							<#PasspValue PasspType=1 PasspID=78 Precision=2>
+						</td>
+						<td class="table__td table__right">
+							<#PasspValue PasspType=1 PasspID=81 Precision=2>
+						</td>
+						<td class="table__td table__right">
+							<#PasspValue PasspType=1 PasspID=80 Precision=2>
+						</td>
+						<td class="table__td table__right">
+							<#PasspValue PasspType=1 PasspID=79 Precision=0>
+						</td>
+					</tr>
+					<tr class="table__tr">
+						<td class="table__td table__left">УЭХ к.317 ЧС</td>
+						<td class="table__td table__right">
+							Dy100
+						</td>
+						<td class="table__td table__right">
+							<#PasspValue PasspType=1 PasspID=82 Precision=2>
+						</td>
+						<td class="table__td table__right">
+							<#PasspValue PasspType=1 PasspID=85 Precision=2>
+						</td>
+						<td class="table__td table__right">
+							<#PasspValue PasspType=1 PasspID=84 Precision=2>
+						</td>
+						<td class="table__td table__right">
+							<#PasspValue PasspType=1 PasspID=83 Precision=0>
+						</td>
+					</tr>
+					<tr class="table__tr">
+						<th colspan="7" class="table__th ">Потребление сжатого воздуха</th>
+					</tr>
+					<tr class="table__tr">
+						<td class="table__td table__left">УП к.266 Общий</td>
+						<td class="table__td table__right">
+							Dy50
+						</td>
+						<td class="table__td table__right">
+							<!-- <#PasspValue PasspType=1 PasspID=52 Precision=3> -->
+						</td>
+						<td class="table__td table__right">
+							<!-- <#PasspValue PasspType=1 PasspID=55 Precision=3> -->
+						</td>
+						<td class="table__td table__right">
+							<!-- <#PasspValue PasspType=1 PasspID=56 Precision=3> -->
+						</td>
+						<td class="table__td table__right">
+							<!-- <#PasspValue PasspType=1 PasspID=54 Precision=3> -->
+						</td>
+					</tr>
+					<tr class="table__tr">
+						<td class="table__td table__left">СИЗОД к.201 быт.</td>
+						<td class="table__td table__right">
+							Dy32
+						</td>
+						<td class="table__td table__right">
+							<#PasspValue PasspType=1 PasspID=218 Precision=1>
+						</td>
+						<td class="table__td table__right">
+							<#PasspValue PasspType=1 PasspID=221 Precision=1>
+						</td>
+						<td class="table__td table__right">
+							<#PasspValue PasspType=1 PasspID=220 Precision=1>
+						</td>
+						<td class="table__td table__right">
+							<#PasspValue PasspType=1 PasspID=219 Precision=1>
+						</td>
+					</tr>
+					<tr class="table__tr">
+						<td class="table__td table__left">СИЗОД к.301</td>
+						<td class="table__td table__right">
+							Dy50
+						</td>
+						<td class="table__td table__right">
+							<#PasspValue PasspType=1 PasspID=87 Precision=2>
+						</td>
+						<td class="table__td table__right">
+							<#PasspValue PasspType=1 PasspID=90 Precision=2>
+						</td>
+						<td class="table__td table__right">
+							<#PasspValue PasspType=1 PasspID=89 Precision=2>
+						</td>
+						<td class="table__td table__right">
+							<#PasspValue PasspType=1 PasspID=88 Precision=0>
+						</td>
+					</tr>
+					<tr class="table__tr">
+						<td class="table__td table__left">УП к.9а</td>
+						<td class="table__td table__right">
+							Dy32
+						</td>
+						<td class="table__td table__right">
+							<#PasspValue PasspType=1 PasspID=93 Precision=2>
+						</td>
+						<td class="table__td table__right">
+							<#PasspValue PasspType=1 PasspID=96 Precision=2>
+						</td>
+						<td class="table__td table__right">
+							<#PasspValue PasspType=1 PasspID=95 Precision=2>
+						</td>
+						<td class="table__td table__right">
+							<#PasspValue PasspType=1 PasspID=94 Precision=0>
+						</td>
+					</tr>
+					<tr class="table__tr">
+						<td class="table__td table__left">УП к.13</td>
+						<td class="table__td table__right">
+							Dy50
+						</td>
+						<td class="table__td table__right">
+							<#PasspValue PasspType=1 PasspID=98 Precision=2>
+						</td>
+						<td class="table__td table__right">
+							<#PasspValue PasspType=1 PasspID=101 Precision=2>
+						</td>
+						<td class="table__td table__right">
+							<#PasspValue PasspType=1 PasspID=100 Precision=2>
+						</td>
+						<td class="table__td table__right">
+							<#PasspValue PasspType=1 PasspID=99 Precision=0>
+						</td>
+					</tr>
+					<tr class="table__tr">
+						<td class="table__td table__left">УП к.10б</td>
+						<td class="table__td table__right">
+							Dy100
+						</td>
+						<td class="table__td table__right">
+							<#PasspValue PasspType=1 PasspID=102 Precision=2>
+						</td>
+						<td class="table__td table__right">
+							<#PasspValue PasspType=1 PasspID=105 Precision=2>
+						</td>
+						<td class="table__td table__right">
+							<#PasspValue PasspType=1 PasspID=104 Precision=2>
+						</td>
+						<td class="table__td table__right">
+							<#PasspValue PasspType=1 PasspID=103 Precision=0>
+						</td>
+					</tr>
+					<tr class="table__tr">
+						<td class="table__td table__left">Цех 19 к.296</td>
+						<td class="table__td table__right">
+							Dy50
+						</td>
+						<td class="table__td table__right">
+							<#PasspValue PasspType=1 PasspID=106 Precision=2>
+						</td>
+						<td class="table__td table__right">
+							<#PasspValue PasspType=1 PasspID=109 Precision=2>
+						</td>
+						<td class="table__td table__right">
+							<#PasspValue PasspType=1 PasspID=108 Precision=2>
+						</td>
+						<td class="table__td table__right">
+							<#PasspValue PasspType=1 PasspID=107 Precision=0>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+
+		</div>
+
+	</body>
+</html>
