@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mnemo</title>
+  <link rel="stylesheet" href="http://Techsite4/kaskad/css/pechVr-mnemo.css">
+</head>
+<#Refresh Content=30>
+
+  <body>
+
+
+    <div class="object container">
+      <h2>Объекты снятия данных для отправки в телеграм бот</h2>
+
+
+      <ul class="object__list list-reset">
+        <li class="object__item">
+          <table class="table object__table">
+            <caption class="table__title">Печь карбонизации №1 нотис
+            </caption>
+            <thead class="table__thead">
+              <tr class="table__tr">
+                <th class="table__th table__left">Наименование параметра</th>
+                <th class="table__th ">Значения &#176C</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="table__tr">
+                <td class="table__td table__td--object table__left">Время сервера</td>
+
+                <td class="table__td table__td--object table__right bot-vr-notis-time">
+                  <!-- оставить в строчку -->
+                  <#Date> <#Time>
+                </td>
+              </tr>
+
+              <tr class="table__tr">
+                <td class="table__td table__td--object table__left">Доза, г/мин</td>
+                <td class="table__td table__td--object table__right bot-vr1-dose-g-min">
+                  <#PasspValue PasspType=1 PasspID=5 Precision=0>
+                </td>
+              </tr>
+              <tr class="table__tr">
+                <td class="table__td table__td--object table__left">Доза, кг/ч</td>
+                <td class="table__td table__td--object table__right bot-vr1-dose-kg-h">
+                  <#PasspValue PasspType=4 PasspID=2 Precision=1>
+                </td>
+              </tr>
+              <tr class="table__tr">
+                <td class="table__td table__td--object table__left">Доза, г</td>
+                <td class="table__td table__td--object table__right bot-vr1-dose-g">
+                  <#PasspValue PasspType=1 PasspID=6 Precision=0>
+                </td>
+              </tr>
+              <tr class="table__tr">
+                <td class="table__td table__td--object table__left">Кол-во доз текущее, шт</td>
+                <td class="table__td table__td--object table__right bot-vr1-dose-number-pieces">
+                  <#PasspValue PasspType=1 PasspID=7 Precision=0>
+                </td>
+              </tr>
+              <tr class="table__tr">
+                <td class="table__td table__td--object table__left">Суммарный вес текущее, тонн</td>
+                <td class="table__td table__td--object table__right bot-vr1-total-weight-tons">
+                  <#PasspValue PasspType=1 PasspID=8 Precision=1>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </li>
+
+
+
+        <li class="object__item">
+          <table class="table object__table">
+            <caption class="table__title">Печь карбонизации №2 нотис
+            </caption>
+            <thead class="table__thead">
+              <tr class="table__tr">
+                <th class="table__th table__left">Наименование параметра</th>
+                <th class="table__th ">Значения &#176C</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="table__tr">
+                <td class="table__td table__td--object table__left">Доза, г/мин</td>
+                <td class="table__td table__td--object table__right bot-vr2-dose-g-min">
+                  <#PasspValue PasspType=1 PasspID=1 Precision=0>
+                </td>
+              </tr>
+              <tr class="table__tr">
+                <td class="table__td table__td--object table__left">Доза, кг/ч</td>
+                <td class="table__td table__td--object table__right bot-vr2-dose-kg-h">
+                  <#PasspValue PasspType=4 PasspID=1 Precision=1>
+                </td>
+              </tr>
+              <tr class="table__tr">
+                <td class="table__td table__td--object table__left">Доза, г</td>
+                <td class="table__td table__td--object table__right bot-vr2-dose-g">
+                  <#PasspValue PasspType=1 PasspID=2 Precision=0>
+                </td>
+              </tr>
+              <tr class="table__tr">
+                <td class="table__td table__td--object table__left">Кол-во доз текущее, шт</td>
+                <td class="table__td table__td--object table__right bot-vr2-dose-number-pieces">
+                  <#PasspValue PasspType=1 PasspID=3 Precision=0>
+                </td>
+              </tr>
+              <tr class="table__tr">
+                <td class="table__td table__td--object table__left">Суммарный вес текущее, тонн</td>
+                <td class="table__td table__td--object table__right bot-vr2-total-weight-tons">
+                  <#PasspValue PasspType=1 PasspID=4 Precision=1>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </li>
+      </ul>
+    </div>
+
+    <script src="http://techsite4/kaskad/js/pechiVr/pechVrTelegram.js"></script>
+    <script src="http://techsite4/kaskad/js/pechiVr/pechVr-transmit.js"></script>
+  </body>
+
+</html>
